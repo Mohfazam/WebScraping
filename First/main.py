@@ -7,5 +7,8 @@ with open(r"C:/Azam/WebScraping/First/index.html", 'r') as html_file:
     tags = soup.find_all('div', class_='info')
 
     for tag in tags:
-        price = tag.span.text
-        print(price)
+        spans = tag.find_all('span')
+        for span in spans:
+            price = span.text.split()[-1]
+
+            print(price)
